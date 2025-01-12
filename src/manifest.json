@@ -19,5 +19,18 @@
   "action": {
     "default_popup": "popup/index.html"
   },
-  "permissions": []
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*/*"
+      ],
+      "js": [
+        "content/index.js"
+      ]
+    }
+  ],
+  "permissions": [
+    "contextMenus",
+    "scripting"
+  ]
 }
