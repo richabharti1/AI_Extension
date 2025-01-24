@@ -3,7 +3,6 @@ import React, {useEffect, useState} from 'react';
 import ReactDOM from 'react-dom/client';
 import Box from '@mui/material/Box';
 import CloseIcon from '@mui/icons-material/Close';
-import WrappedFrame from '../common/WrappedFrame';
 
 
 const newElement = document.createElement('div');
@@ -12,7 +11,7 @@ document.body.appendChild(newElement);
 const root = ReactDOM.createRoot(newElement);
 
 const styles = {
-    frame: {
+    Box: {
         boxSizing: 'border-box',
         position: 'fixed',
         top: 11,
@@ -20,8 +19,8 @@ const styles = {
         border: '3px black solid',
         borderStyle: 'inset',
         boxShadow: '5px 10px 8px #888888',
-        width: 280,
-        height: 180,
+        width: 300,
+        height: 300,
         background: 'white',
         zIndex: 2147483647,
         display: 'block !important',
@@ -29,8 +28,6 @@ const styles = {
 };
 
 let renderCount = 0;
-
-
 const InjectElement = () => {
     const [imageDescription, setImageDescription] = useState('');
     const [showDescription, setShowDescription] = useState(false);
@@ -64,25 +61,31 @@ const InjectElement = () => {
         setImageDescription('');
     };
     return (
-        // <WrappedFrame style={styles.frame}>
-            <Box sx={styles.frame}>
-                <Box sx={{flexGrow: 1}}>
-                    <AppBar position="static">
-                        <Toolbar>
-                            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                                Image Description
-                            </Typography>
-                            <IconButton color="inherit" onClick={() => {
-                                handleClick();
-                            }}><CloseIcon/></IconButton>
-                        </Toolbar>
-                    </AppBar>
-                </Box>
-                <Paper>
-                    {imageDescription}
-                </Paper>
+
+        <Box sx={styles.Box}>
+            <Box sx={{flexGrow: 1}}>
+                <AppBar position="static">
+                    <Toolbar>
+                        <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                            Image Description
+                        </Typography>
+                        <IconButton color="inherit" onClick={() => {
+                            handleClick();
+                        }}><CloseIcon/></IconButton>
+                    </Toolbar>
+                </AppBar>
             </Box>
-        // </WrappedFrame>
+            <Box sx={{
+                width: 300,
+                height: 200,
+                overflowY: 'auto', // Makes the content scrollable
+                padding: 2,
+                border: '1px solid #ddd',
+                boxShadow: 2,
+            }}>
+                {imageDescription}
+            </Box>
+        </Box>
     );
 };
 
