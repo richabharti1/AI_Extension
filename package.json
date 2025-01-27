@@ -44,7 +44,7 @@
     "@emotion/react": "^11.14.0",
     "@emotion/styled": "^11.14.0",
     "@mui/icons-material": "^6.4.0",
-    "@mui/material": "^6.4.0",
+    "@mui/material": "^6.4.1",
     "@mui/styles": "^6.4.0",
     "dotenv": "^16.4.7",
     "jss": "^10.10.0",
