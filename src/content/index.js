@@ -59,33 +59,35 @@ const InjectElement = () => {
 
     const handleClick = () => {
         setImageDescription('');
+        setShowDescription(false);
     };
     return (
-
-        <Box sx={styles.Box}>
-            <Box sx={{flexGrow: 1}}>
-                <AppBar position="static">
-                    <Toolbar>
-                        <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
-                            Image Description
-                        </Typography>
-                        <IconButton color="inherit" onClick={() => {
-                            handleClick();
-                        }}><CloseIcon/></IconButton>
-                    </Toolbar>
-                </AppBar>
+        showDescription && (
+            <Box sx={styles.Box}>
+                <Box sx={{flexGrow: 1}}>
+                    <AppBar position="static">
+                        <Toolbar>
+                            <Typography variant="h6" component="div" sx={{flexGrow: 1}}>
+                                Image Description
+                            </Typography>
+                            <IconButton color="inherit" onClick={() => {
+                                handleClick();
+                            }}><CloseIcon/></IconButton>
+                        </Toolbar>
+                    </AppBar>
+                </Box>
+                <Box sx={{
+                    width: 294,
+                    height: 231,
+                    overflowY: 'auto', // Makes the content scrollable
+                    padding: 2,
+                    border: '1px solid #ddd',
+                    boxShadow: 2,
+                }}>
+                    {imageDescription}
+                </Box>
             </Box>
-            <Box sx={{
-                width: 300,
-                height: 200,
-                overflowY: 'auto', // Makes the content scrollable
-                padding: 2,
-                border: '1px solid #ddd',
-                boxShadow: 2,
-            }}>
-                {imageDescription}
-            </Box>
-        </Box>
+        )
     );
 };
 
