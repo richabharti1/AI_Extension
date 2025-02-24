@@ -25,7 +25,7 @@
     "@release-it/conventional-changelog": "^9.0.4",
     "@types/chrome": "^0.0.287",
     "@types/react": "^19.0.2",
-    "@types/react-dom": "^19.0.2",
+    "@types/react-dom": "^19.0.4",
     "dotenv-cli": "^8.0.0",
     "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.3",
